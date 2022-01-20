@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .title{
+      font-size: 12px;
+      text-align: center; 
+    }
+    .main{
+      font-weight: 10;
+    }
+    
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div name="title">Report Card<div><br>
+  <div id="main">
+    Roll Number: <b id="roll_no"></b><br>
+    Standard: <b id="standard"></b><br>
+    Exam Given: <b id="olympiad"></b><br>
+    Marks Scored: <b id="marks"></b><br>
+    Qualified for 2<sup>nd</sup> Level: <b id="qualified"></b><br>
+    Class Rank: <b id="rank_class"></b><br>
+    Zonal Rank: <b id="rank_zonal"></b><br>
+    State Rank: <b id="rank_state"></b><br>
+    National Rank: <b id="rank_national"></b><br>
+    International Rank: <b id="rank_international"></b><br>
+  </div>
+</body>
+<script>
+  var olympiad = sessionStorage.getItem("olympiad");
+
+  var school_code = sessionStorage.getItem("school_code");
+  var standard = sessionStorage.getItem("standard");
+  var main_roll_no = sessionStorage.getItem("main_roll_no");
+  var full_roll_no = school_code+standard+main_roll_no;
+  if(full_roll_no==0){
+    alert("You have to first fill the values");
+    window.close();
+    window.open("index.html");
+    window.CloseEvent("https://meet.google.com/?authuser=2")
+  }
+
+
+  var marks=randomNumber(61,24);
+var qualified, 
+    rank_class,
+    rank_zonal,
+    rank_state,
+    rank_national,
+    rank_international;
+
+  if (marks>44) {
+    qualified="Yes"
+  } else {
+    qualified="No"
+  }
+  
+  switch (marks) {
+    
+    case marks>57:
+      rank_class=1
+    break;
+
+    case marks>53:
+      rank_class=2
+    break;
+
+    case marks>49:
+      rank_class=3
+    break;
+
+    case marks>44:
+      rank_class=4
+    break;
+
+    case marks>39:
+      rank_class=5
+    break;
+
+    case marks>34:
+      rank_class=6
+    break;
+
+    case marks>29:
+      rank_class=5
+    break;
+
+    case marks>24:
+      rank_class=5
+    break;
+
+
+  }
+
+  if (marks==60) {
+    rank_class=1
+    rank_zonal=1
+    rank_state=randomNumber(0,4);
+    rank_national=randomNumber(0,11);
+    rank_international=randomNumber(0,51);
+
+  } else if (marks>=58) {
+    rank_class=randomNumber(0,4)
+    rank_zonal=randomNumber(0,7)
+    rank_state=randomNumber(3,10);
+    rank_national=randomNumber(10,21);
+    rank_international=randomNumber(50,101);
+    
+  } else if (marks>=54) {
+    rank_class=randomNumber(3,6)
+    rank_zonal=randomNumber(6,21)
+    rank_state=randomNumber(0,4);
+    rank_national=randomNumber(0,11);
+    rank_international=randomNumber(0,51);
+    
+  } else if (marks>=50) {
+    rank_class=randomNumber(6,10);
+    rank_zonal=1
+    rank_state=randomNumber(0,4);
+    rank_national=randomNumber(0,11);
+    rank_international=randomNumber(0,51);
+    
+  } else if (marks>=45) {
+    
+  } else if (marks>=40) {
+    
+  } else if (marks>=35) {
+    
+  } else if (marks>=30) {
+    
+  } else {
+    
+  } /*else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else if (marks>=50) {
+    
+  } else {
+    
+  }{
+    
+  }{
+    
+  } {
+    
+  }*/
+  
+
+  var Roll_Number=document.getElementById("roll_no").innerHTML=full_roll_no
+  var Standard=document.getElementById("standard").innerHTML=standard;
+  var Exam_Given=document.getElementById("olympiad").innerHTML=olympiad;
+  var Marks_Scored=document.getElementById("marks").innerHTML=marks+"/60";
+  var Qualified=document.getElementById("qualified").innerHTML=qualified;
+  var Class_Rank=document.getElementById("rank_class").innerHTML=rank_class;
+  var Zonal_Rank=document.getElementById("rank_zonal").innerHTML=rank_zonal;
+  var State_Rank=document.getElementById("rank_state").innerHTML=rank_state;
+  var National_Rank=document.getElementById("rank_national").innerHTML=rank_national;
+  var International_Rank=document.getElementById("rank_international").innerHTML=rank_international;
+
+  console.log(full_roll_no);   
+  console.log(olympiad);
+  console.log(randomNumber(4,8))
+
+  function randomNumber(max, min) {
+    number=Math.floor(Math.random()*((max-min)+1)+min)
+    return number;
+  }
+
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="sof_header_logo.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Olympiad Results</title>
+</head>
+<body>
+    
+    <div class="logo">Science Olympiad Foundation</div><br>
+    <div class="heading">FINAL RESULT</div>
+    <div class="part1">Select Olympiad
+        <form action="select_olympiad">
+            <select name="select_olympiad" id="select_olympiad">
+                <option value="null">Select</option>
+                <option value="IMO">SOF IMO 2020-21</option>
+                <option value="NSO">SOF NSO 2020-21</option>
+                <option value="IEO">SOF IEO 2020-21</option>
+                <option value="IGKO">SOF IGKO 2020-21</option>
+            </select>
+        </form>
+    </div>
+    <div class="part2">
+        Enter Your Roll No <br>
+            <input type="text" style="text-align: center;" placeholder="------" size="7" maxlength="6" name="enter_school_code" id="enter_school_code" style="user-select: auto;"> -
+            <input type="number" style="text-align: center;" placeholder="--"  min="1" max="12" name="enter_standard" id="enter_standard"> -
+            <input type="text" style="text-align: center;" name="enter_main_roll_no" id="enter_main_roll_no" size="5">
+    </div>
+    <div class="part2_description">
+        Please enter the Roll No. in this format- <br>
+        YourSchoolCode-Class-RollNo. eg,. (AN0006-11-005)
+    </div>
+    <hr>
+    <div class="captcha">
+        CAPTCHA
+    </div>
+    <div class="captcha_description">
+        This question is for testing whether or not you are a human visitor and to prevent automated spam submissions.
+    </div>
+       <div class="question_title" align="center"><b>Math question <font color="red">*</font></b></div>
+       <div class="full_question"><div id="main_question"></div><input type="text" class="input_answer" maxlength="2" size="2"id="my_answer" placeholder=""></div>
+
+    <div class="question_decription">
+        Solve this simple math problem and enter the result. E.g. for 1+3, enter 4.
+    </div>
+    <hr>
+    <div class="end"><button class="submit" type="submit" onclick="checking_olympiad(select_olympiad)+checking_captcha(my_answer)+checking_roll_no(enter_school_code,enter_standard,enter_main_roll_no)+overall_status()">Veiw Results</button></div>
+</body>
+<script>
+    let first_num=Math.round(Math.random()*10)
+    let second_num=Math.round(Math.random()*10)
+    let answer=first_num+second_num;
+    var question=document.getElementById("main_question").innerHTML='<div align="centre" class="main-question">'+"<font >"+first_num+" + "+second_num+" ="+"</div>"
+    var checking_status=0;
+
+    function checking_olympiad(element_olympiad){
+            if (element_olympiad.value=="null") {
+            alert("Please select Olympiad");
+            location.reload();
+            }else{
+            checking_status+=1;
+            }
+            console.log(element_olympiad.value);
+            sessionStorage.setItem("olympiad",element_olympiad.value)
+    }
+
+    function checking_roll_no(element_roll_no1, element_roll_no2, element_roll_no3){
+        if (element_roll_no1.value==""||element_roll_no2.value==""||element_roll_no3.value=="") {
+        alert("Please enter full Roll Number")
+        location.reload();
+        }else{
+        checking_status+=1;
+        }
+          console.log(element_roll_no1.value, element_roll_no2.value, element_roll_no3.value);
+          sessionStorage.setItem("school_code", element_roll_no1.value);
+	  sessionStorage.setItem("standard", element_roll_no2.value);
+	  sessionStorage.setItem("main_roll_no", element_roll_no3.value);
+    }
+
+    function checking_captcha(element_captcha){
+        if (element_captcha.value!=answer) {
+        alert("Wrong answer for Captcha");
+        location.reload();
+        }else{
+        checking_status+=1;
+        }
+        console.log(element_captcha.value);
+        console.log(checking_status);
+    }
+
+    function overall_status(){
+        if (checking_status==3){
+            window.open("report-card.html");
+        }
+    }
+    
+    console.log(first_num, second_num, answer);
+</script>
+</html>

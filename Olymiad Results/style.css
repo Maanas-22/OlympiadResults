@@ -1,0 +1,85 @@
+body{
+    font-family: Arial;
+    margin: 0px;
+    padding-bottom: 75px;
+}
+.logo{
+    color: black;
+    background-color: #eaebed;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 60px;
+    background-image: url(sof_logo.jpg);
+    background-repeat: no-repeat;
+}
+.heading{
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+}
+.part1{
+    color: #0050ac;
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+.part2{
+    color: #0050ac;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+.part2_description{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.captcha{
+    font-size: 24px;
+    padding-top: 30px;
+    text-align: center;
+}
+.captcha_description{
+    font-size: 13px;
+    text-align: center;
+}
+.question_title{
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+}
+.submit{
+    color: white;
+    background-color: rgb(65, 139, 209);
+    position: absolute;
+    border-radius: 50px;
+    border: rgb(65, 139, 209);
+    height: 45px;
+    width: 150px;
+    font-size: 19px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+.end{
+    display: flex;
+    justify-content: center;
+}
+.full_question{
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.question_decription{
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
